@@ -1,4 +1,4 @@
-# test-postgresql
+# test-postgresql [![Build Status](https://travis-ci.org/kwakwaversal/test-postgresql.svg?branch=master)](https://travis-ci.org/kwakwaversal/test-postgresql)
 Test PostgreSQL features to make sure they do what you expect
 
 # Description
