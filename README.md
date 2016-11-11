@@ -8,3 +8,12 @@ was doing what I expect it to do. I will expand on these when and as I feel
 necessary.
 
 N.B., I am using [Perl](http://perldoc.perl.org) for testing.
+
+# Tests
+
+## [citext](https://www.postgresql.org/docs/current/static/citext.html)
+The citext module provides a case-insensitive character string type, citext.
+Essentially, it internally calls lower when comparing values. Otherwise, it
+behaves almost exactly like text.
+
+The tests make sure it does this, and that an index is used appropriately.
