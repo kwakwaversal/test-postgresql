@@ -49,9 +49,7 @@ done_testing;
 $pg->migrations->from_data->migrate(0);
 
 __DATA__
-
 @@ migrations
-
 -- 1 up
 
 CREATE EXTENSION IF NOT EXISTS citext;
@@ -65,13 +63,12 @@ CREATE INDEX idx_ciemails_email ON ciemails USING btree (email);
 
 CREATE TABLE emails (
   id BIGSERIAL PRIMARY KEY,
-  name TEXT NOT NULL,
   email TEXT NOT NULL
+  name TEXT NOT NULL,
 );
 CREATE INDEX idx_emails_email ON emails USING btree (email);
 
 -- 1 down
-
 DROP TABLE IF EXISTS ciemails;
 DROP TABLE IF EXISTS emails;
 
