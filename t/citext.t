@@ -63,8 +63,8 @@ CREATE INDEX idx_ciemails_email ON ciemails USING btree (email);
 
 CREATE TABLE emails (
   id BIGSERIAL PRIMARY KEY,
-  email TEXT NOT NULL
   name TEXT NOT NULL,
+  email TEXT NOT NULL
 );
 CREATE INDEX idx_emails_email ON emails USING btree (email);
 
