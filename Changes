@@ -1,5 +1,8 @@
 -----------------------------------------------------
 
+0.03  2017-12-03
+  - Added citext_with_schema.t.
+
 0.02  2016-11-11
   - Updated README to include the type of tests.
 
