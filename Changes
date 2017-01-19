@@ -1,6 +1,9 @@
 -----------------------------------------------------
 
-0.03  2017-12-03
+0.04  2017-01-19
+  - Tests using migration names based on their filename.
+
+0.03  2017-01-03
   - Added citext_with_schema.t.
 
 0.02  2016-11-11

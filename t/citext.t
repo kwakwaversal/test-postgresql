@@ -7,7 +7,7 @@ plan skip_all => 'set TEST_ONLINE to enable this test'
   unless $ENV{TEST_ONLINE};
 
 my $pg = Mojo::Pg->new($ENV{TEST_ONLINE});
-$pg->migrations->from_data->migrate;
+$pg->migrations->name($0)->from_data->migrate;
 
 sub insert {
   my $table = shift;
@@ -49,7 +49,7 @@ done_testing;
 $pg->migrations->from_data->migrate(0);
 
 __DATA__
-@@ migrations
+@@ t/citext.t
 -- 1 up
 
 CREATE EXTENSION IF NOT EXISTS citext;
