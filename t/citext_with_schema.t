@@ -10,7 +10,7 @@ plan skip_all => 'set TEST_ONLINE to enable this test'
   unless $ENV{TEST_ONLINE};
 
 my $pg = Mojo::Pg->new($ENV{TEST_ONLINE});
-$pg->migrations->name(path($0)->realpath)->from_data->migrate;
+$pg->migrations->name(path($0)->to_rel)->from_data->migrate;
 
 sub insert {
   my $table = shift;
@@ -49,7 +49,7 @@ subtest emails => sub {
 
 done_testing;
 
-END { $pg->migrations->name(path($0)->realpath)->from_data->migrate(0) }
+END { $pg->migrations->name(path($0)->to_rel)->from_data->migrate(0) }
 
 __DATA__
 @@ t/citext_with_schema.t
