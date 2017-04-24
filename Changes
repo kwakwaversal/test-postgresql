@@ -1,5 +1,8 @@
 -----------------------------------------------------
 
+0.05  2017-04-24
+  - Use path() in tests making prove non-dir specific.
+
 0.04  2017-01-19
   - Tests using migration names based on their filename.
 

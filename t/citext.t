@@ -1,13 +1,16 @@
+#!/usr/bin/env perl
+
 use strict;
 use warnings;
 use Test::More;
+use Mojo::File qw/path/;
 use Mojo::Pg;
 
 plan skip_all => 'set TEST_ONLINE to enable this test'
   unless $ENV{TEST_ONLINE};
 
 my $pg = Mojo::Pg->new($ENV{TEST_ONLINE});
-$pg->migrations->name($0)->from_data->migrate;
+$pg->migrations->name(path($0)->realpath)->from_data->migrate;
 
 sub insert {
   my $table = shift;
@@ -46,7 +49,7 @@ subtest emails => sub {
 
 done_testing;
 
-$pg->migrations->from_data->migrate(0);
+END { $pg->migrations->name(path($0)->realpath)->from_data->migrate(0) }
 
 __DATA__
 @@ t/citext.t
@@ -72,4 +75,4 @@ CREATE INDEX idx_emails_email ON emails USING btree (email);
 DROP TABLE IF EXISTS ciemails;
 DROP TABLE IF EXISTS emails;
 
-DROP EXTENSION IF EXISTS citext;
+DROP EXTENSION IF EXISTS citext CASCADE;
